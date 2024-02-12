@@ -1,6 +1,5 @@
 package pkgs;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -11,7 +10,7 @@ public class Teste01 {
 	private static String caminhoArquivo = "C:\\tmp\\202402100418\\savedFiles\\saopaulo.ser";
 
 	public static void main(String[] args) {
-		writeObject();
+		//writeObject();
 		readObject();
 	}
 
@@ -21,7 +20,8 @@ public class Teste01 {
 			int a1 = 1;
 			Integer a2 = Integer.valueOf(2);
 			String a3 = "a3";
-			Bean01 bean01 = new Bean01(a1, a2, a3);
+			// Bean01 bean01 = new Bean01(a1, a2, a3);
+			Bean01 bean01 = null;
 			System.out.println("[bean01=" + (bean01) + "]");
 
 			FileOutputStream fos = new FileOutputStream(caminhoArquivo);
@@ -40,6 +40,7 @@ public class Teste01 {
 			FileInputStream fis = new FileInputStream(caminhoArquivo);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			Bean01 bean01 = (Bean01) ois.readObject();
+			bean01.mTeste01();
 			ois.close();
 			System.out.println("[bean01=" + (bean01) + "]");
 			System.out.println("/Teste01.readObject()");
